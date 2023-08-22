@@ -1,6 +1,6 @@
 // Implements helper functions for generating and validating passwords
 
-const crypto = require("crypto")
+const crypto = require("crypto");
 
 function generateSalt(saltLength) {
   return crypto.randomBytes(saltLength).toString('hex')

@@ -9,6 +9,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
+import { AuthContextProvider } from './context/AuthContext';
 
 // Configure the router
 const router = createBrowserRouter([
@@ -25,7 +26,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ChakraProvider>    
-      <RouterProvider router={router} />
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

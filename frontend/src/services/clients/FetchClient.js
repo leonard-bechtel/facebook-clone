@@ -2,7 +2,9 @@
 
 const FetchClient = {
   async get(url) {
-    return await fetch(url)
+    return await fetch(url, {
+      credentials: "same-origin"
+    })
   },
 
   async post(url, body) {
@@ -11,13 +13,15 @@ const FetchClient = {
       body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      credentials: "same-origin"
     })
   },
 
   async delete(url) {
     return fetch(url, {
-      method: "DELETE"
+      method: "DELETE",
+      credentials: "same-origin"
     })
   }
 }

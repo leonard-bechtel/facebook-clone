@@ -8,9 +8,16 @@ const stylesContainer = {
 export default function MyInput(props) {
   return (
     <Box>
-      <FormControl sx={stylesContainer}>
+      <FormControl sx={stylesContainer} isRequired={props.isRequired ? true : false}>
         <FormLabel htmlFor={props.htmlFor}>{props.labelText}</FormLabel>
-        <Input type={props.inputType} id={props.id} placeholder={props.placeholder} />
+        <Input 
+          bg="white" 
+          type={props.inputType} 
+          id={props.id} 
+          placeholder={props.placeholder} 
+          onChange={props.onChange}
+          value={props.value}
+        />
       </FormControl>
     </Box>
   )

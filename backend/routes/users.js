@@ -22,21 +22,27 @@ router.get("/", async (req, res) => {
 })
 
 // Login
-router.post("/login", passport.authenticate("local"), (req, res) => {
-  // Check if the login credentials have been sent
-  const { username, password } = req.body
-  if (username && password) {
-    if (req.isAuthenticated()) {
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err)
+    }
+    if (!user) {
+      res.status(401).json({ 
+        msg: "Bad credentials",
+        isAuthenticated: false
+      })
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        return next(err)
+      }
       res.status(200).json({ 
         msg: "User was successfully authenticated",
         isAuthenticated: true
       })
-    } else {
-      res.status(403).json({ msg: "Bad credentials" })
-    }
-  } else {
-    res.status(403).json({ msg: "Bad credentials" })
-  }
+    })
+  })(req, res, next)
 })
 
 // Register

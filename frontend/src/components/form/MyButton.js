@@ -41,6 +41,6 @@ export default function MyButton(props) {
   else { stylesButton = stylesButtonBasic }
 
   return (
-    <Button sx={stylesButton}>{props.text}</Button>
+    <Button onClick={props.onClick} sx={stylesButton}>{props.text}</Button>
   )
 }
