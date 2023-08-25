@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
-import { AuthContextProvider } from './context/AuthContext';
+import { AuthContextProvider } from './context/AuthContext/AuthContext';
 
 // Configure the router
 const router = createBrowserRouter([
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   { path: "/register", element: <Register />},
   { path: "/", element: <RootLayout />, children: [
     { path: "/", element: <Home /> },
-    { path: "/profile", element: <Profile /> }
+    { path: "/profile", element: <Profile /> },
   ]}
 ])
 

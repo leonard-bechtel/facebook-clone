@@ -28,7 +28,7 @@ class UserService {
 
   async createUser(userData) {
     try {
-      const res = await this.httpClient.post("http://localhost:8080/users", userData)
+      const res = await this.httpClient.post("http://localhost:8080/users/register", userData)
       return res.json()
     } catch (err) {
       console.log(err)

@@ -1,7 +1,6 @@
 const express = require("express");
 const User = require("../models/User");
-const passport = require("../auth/passportConfig");
-const { generateSalt, generateHashedPassword } = require("../auth/helpers");
+const { generateSalt, generateHashedPassword } = require("../auth/utils");
 
 const router = express.Router()
 
@@ -14,6 +13,7 @@ router.get("/", async (req, res) => {
       console.log(`username: ${user.username}`)
     }
     console.log("~~~~~~~~~~ ~~~~~~~~~~ ~~~~~~~~~~ ~~~~~~~~~~")
+    console.log("req.user: ", req.user)
     //res.status(200).json(users)
   } catch (err) {
     res.status(400).json({ msg: "Couldn't find any users" })
@@ -21,29 +21,7 @@ router.get("/", async (req, res) => {
   }
 })
 
-// Login
-router.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) {
-      return next(err)
-    }
-    if (!user) {
-      res.status(401).json({ 
-        msg: "Bad credentials",
-        isAuthenticated: false
-      })
-    }
-    req.logIn(user, (err) => {
-      if (err) {
-        return next(err)
-      }
-      res.status(200).json({ 
-        msg: "User was successfully authenticated",
-        isAuthenticated: true
-      })
-    })
-  })(req, res, next)
-})
+
 
 // Register
 router.post("/register", async (req, res) => {

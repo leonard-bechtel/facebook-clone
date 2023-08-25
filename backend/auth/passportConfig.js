@@ -2,7 +2,7 @@
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const { comparePasswords } = require("./helpers");
+const { comparePasswords } = require("./utils");
 const User = require("../models/User");
 
 // Implement the local strategy for authenticating users using a username and a password

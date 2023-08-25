@@ -1,7 +1,15 @@
-import React from 'react'
+import React from 'react';
+import RegisterForm from "./RegisterForm";
+
+import { Box, Heading } from '@chakra-ui/react';
 
 export default function Register() {
   return (
-    <div>Register</div>
+    <>
+      <Box>
+        <Heading bg="purple.500" mb="80px" p="20px" color="white">Register</Heading>
+      </Box>
+      <RegisterForm />
+    </>
   )
 }
