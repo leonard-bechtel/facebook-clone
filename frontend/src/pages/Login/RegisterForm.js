@@ -9,7 +9,7 @@ import FetchClient from "../../services/clients/FetchClient";
 const formStyles = {
   margin: "0 auto",
   padding: "50px",
-  maxWidth: "40%",
+  maxWidth: "60%",
   backgroundColor: "rgb(237, 237, 237)",
   borderRadius: "5%"
 }

@@ -1,15 +1,25 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
-import AuthContext from '../../context/AuthContext/AuthContext'
+import AuthContext from '../../context/AuthContext';
+
+import NewPostForm from "../../components/form/NewPostForm";
+import PublicFeed from './PublicFeed';
+
+
 
 export default function Home() {
   const authCtx = useContext(AuthContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
-    console.log("Is authenticated:", authCtx.isAuthenticated)
-  }, [authCtx.isAuthenticated])
+    if (!authCtx.isAuthenticated) navigate("/login")
+  }, [authCtx.isAuthenticated, navigate])
 
   return (
-    <div onClick={() => {console.log(authCtx.isAuthenticated)}}>Is authenticated: {`${authCtx.isAuthenticated}`}</div>
+    <div style={{maxWidth: "70%", margin: "40px auto 0"}}>
+      <NewPostForm />
+      <PublicFeed />
+    </div>
   )
 }

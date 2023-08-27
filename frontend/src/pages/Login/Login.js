@@ -1,11 +1,11 @@
 import React from 'react';
 import LoginForm from './LoginForm';
-import LoginHeader from "./LoginHeader";
+import MainHeader from '../../components/ui/MainHeader';
 
 export default function Login() {
   return (
     <>
-      <LoginHeader />
+      <MainHeader title="Login" />
       <LoginForm />
     </>
   )

@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+
+import { Flex, Heading, Spacer } from "@chakra-ui/react";
 
 export default function MainFooter() {
   return (
-    <div>MainFooter</div>
+    <Flex alignItems="center" pl="20px" pr="20px" bg="blue.500" mb="0px" minHeight="200px">
+      <Heading as="h2" color="white">Footer</Heading>
+      <Spacer />
+    </Flex>
   )
 }

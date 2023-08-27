@@ -39,12 +39,12 @@ router.post("/register", async (req, res) => {
       const salt = generateSalt(16)
       const hashedPassword = await generateHashedPassword(req.body.password, salt)
       const newUser = await User.create({
-        username: username,
-        email: email,
-        salt: salt,
-        hashedPassword: hashedPassword,
-        firstname: firstname,
-        lastname: lastname
+        username,
+        email,
+        salt,
+        hashedPassword,
+        firstname,
+        lastname
       })
       await newUser.save()
       res.status(201).json({ msg: "User was created successfully" })

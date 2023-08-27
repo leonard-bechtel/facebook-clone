@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react'
 import reportWebVitals from './reportWebVitals';
+import "./assets/global.css";
 
 import RootLayout from "./components/ui/RootLayout";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
-import { AuthContextProvider } from './context/AuthContext/AuthContext';
+import { AuthContextProvider } from './context/AuthContext';
 
 // Configure the router
 const router = createBrowserRouter([

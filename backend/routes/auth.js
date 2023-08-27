@@ -31,6 +31,7 @@ router.get("/get-login-status", (req, res) => {
   if (req.user !== undefined) {
     res.status(200).json({ 
       msg: "User is still logged in", 
+      username: req.user.username,
       isAuthenticated: true
     })
   } else {
@@ -44,7 +45,10 @@ router.get("/get-login-status", (req, res) => {
 router.post("/login", passport.authenticate("local"), (req, res) => {
   if (req.isAuthenticated()) {
     console.log("user: ", req.user)
-    res.status(200).json({ user: req.user })
+    res.status(200).json({
+      msg: "User was authenticated successfully",
+      isAuthenticated: true
+    })
   } else {
     res.status(400).json({ msg: "Authentication failed" })
   }
