@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import AuthContext from '../../context/AuthContext';
 
-import NewPostForm from "../../components/form/NewPostForm";
-import PublicFeed from './PublicFeed';
+import PostsList from '../../components/ui/PostsList';
+import NewPostForm from '../../components/form/NewPostForm';
 
 
 
-export default function Home() {
+export default function Home(props) {
   const authCtx = useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -18,8 +18,8 @@ export default function Home() {
 
   return (
     <div style={{maxWidth: "70%", margin: "40px auto 0"}}>
-      <NewPostForm />
-      <PublicFeed />
+      {props.showNewPostForm && <NewPostForm />}
+      <PostsList />
     </div>
   )
 }

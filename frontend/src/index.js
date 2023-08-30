@@ -10,6 +10,8 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
+import PersonalFeed from "./pages/Profile/PersonalFeed";
+
 import { AuthContextProvider } from './context/AuthContext';
 
 // Configure the router
@@ -18,6 +20,8 @@ const router = createBrowserRouter([
   { path: "/register", element: <Register />},
   { path: "/", element: <RootLayout />, children: [
     { path: "/", element: <Home /> },
+    { path: "/personal-feed", element: <PersonalFeed /> },
+    { path: "/new-post", element: <Home showNewPostForm={true} /> },
     { path: "/profile", element: <Profile /> },
   ]}
 ])

@@ -27,7 +27,7 @@ export default function MainHeader() {
   const authCtx = useContext(AuthContext)
 
   return (
-    <Flex alignItems="center" pl="20px" pr="20px" bg="blue.500" minHeight="120px">
+    <Flex alignItems="center" pl="20px" pr="20px" bg="blue.600" minHeight="120px">
       <Link to="/"><Heading color="white">Clone App</Heading></Link>
       <Spacer />
       {authCtx.isAuthenticated && (

@@ -97,7 +97,6 @@ export default function LoginForm() {
         />
         <MyButton onClick={submitHandler} buttonType="submit" text="Login" />
         <MyButton onClick={testLoginHandler} buttonType="submit" text="Login Test" />
-        {authCtx.isAuthenticated && <MyButton onClick={logoutHandler} buttonType="submit" text="Logout" />}
       </form>
     </div>
   )

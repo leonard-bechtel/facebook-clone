@@ -11,7 +11,7 @@ import Sidenav from "../ui/Sidenav";
 export default function RootLayout() {
   return (
     <React.Fragment>
-      <Grid templateColumns="repeat(5, 1fr)">
+      <Grid templateColumns="repeat(7, 1fr)">
         <GridItem
           as="aside"
           colSpan="1"
@@ -22,13 +22,16 @@ export default function RootLayout() {
         </GridItem>
         <GridItem
           as="main"
-          colSpan="4"
+          colSpan="6"
         >
-          <MainHeader />
-          <Outlet />
+          <div style={{textAlign: "center"}}>
+            <MainHeader />
+            <Outlet />
+          </div>
         </GridItem>
       </Grid>
       <MainFooter />
     </React.Fragment>
   )
 }
+
